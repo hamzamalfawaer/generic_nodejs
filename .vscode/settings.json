@@ -1,0 +1,21 @@
+{
+  "debug.internalConsoleOptions": "neverOpen",
+  "eslint.enable": true,
+  "eslint.run": "onType",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [ 120 ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  }
+}

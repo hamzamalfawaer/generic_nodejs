@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Check for linting errors (npm run lint:check)",
+      "type": "npm",
+      "script": "lint:check"
+    },
+    {
+      "label": "Try to fix linting errors (npm run lint:fix)",
+      "type": "npm",
+      "script": "lint:fix"
+    },
+    {
+      "label": "Check for formatting errors (npm run format:check)",
+      "type": "npm",
+      "script": "format:check"
+    },
+    {
+      "label": "Try to fix formatting errors (npm run format:fix)",
+      "type": "npm",
+      "script": "format:fix"
+    }
+  ]
+}
