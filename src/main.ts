@@ -1,29 +1,11 @@
-import express , { Request, Response } from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import {env} from '../env';
-import { Server } from 'node:net';
+import { createServer } from './create-server';
+import { k8sServer } from './k8s-server';
 
-const app = express();
+k8sServer(createServer().listen(8000, () => console.log('Main Server Started at port 8000')));
 
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.text());
-
-app.get('/', (req: Request, res: Response) => {
-    res.sendStatus(200);
+process.on('unhandledRejection', err => {
+    console.error('Unhandled Rejection', err);
 });
-
-async function main() {
-    console.log('Starting Server...');
-    console.log('APIURL: ', env('APIURL'));
-    console.log('PORT: ', env('PORT'));
-
-    await new Promise<Server>(resolve => {
-        const srv = app.listen(env('PORT'), () => resolve(srv));
-    });
-
-    console.log(`Server Started at http://localhost:${env('PORT')}`);
-}
-
-main();
+process.on('uncaughtException', err => {
+    console.error('Uncaught Exception', err);
+});

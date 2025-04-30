@@ -5,6 +5,7 @@ dotenv.config();
 export class EnvironmentVariables {
   APIURL: string = ((process.env.APIURL || 'https://4001.hoteladvisor.net') + '/').replace(/\/\/$/, '/');
   PORT: number = process.env.PORT ? +process.env.PORT : 8000;
+  LOADERIO_KEY: string | undefined = process.env.LOADERIO_KEY;
 }
 
 let _environmentVariables: EnvironmentVariables;
