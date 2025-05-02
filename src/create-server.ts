@@ -1,13 +1,12 @@
-
-import express, { Request, Response } from 'express';
+import express, {Request, Response} from 'express';
 import bodyParser from 'body-parser';
-import { env } from '../env';
+import {env} from '../env';
 
 export const createServer = () => {
     const app = express();
 
     app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal']);
-    app.use(bodyParser.json({ limit: '2mb' }));
+    app.use(bodyParser.json({limit: '2mb'}));
     app.use(function (req, res, next) {
         try {
             const originURL = new URL(req.headers.origin ?? `https://${req.hostname}`);
@@ -19,7 +18,8 @@ export const createServer = () => {
                 'Access-Control-Allow-Headers',
                 'DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization'
             );
-        } catch (e) {}
+        } catch (e) {
+        }
         next();
     });
 
